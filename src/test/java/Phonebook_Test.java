@@ -7,6 +7,9 @@
  * Attention:  We would check your commits and it will affect your score
  */
 import org.junit.jupiter.api.Test;
+
+import java.util.Objects;
+
 import static org.junit.jupiter.api.Assertions.*;
 public class Phonebook_Test {
     @Test
@@ -32,6 +35,25 @@ public class Phonebook_Test {
         Person person5 = new Person("Melina","09113569254");
         phonebook.addContact(person5);
         assertFalse(Phonebook.getAllContacts().contains(person5));
+
+        Person person6 = new Person("   ","09113569254");
+        phonebook.addContact(person6);
+        assertFalse(Phonebook.getAllContacts().contains(person6));
+
+
     }
+
+    @Test
+    public void testgetphonenumber()
+    {
+        Person person1= new Person("Maryam","09113569254");
+        Phonebook phonebook=new Phonebook();
+        phonebook.addContact(person1);
+        String name1="Maryam";
+
+    }
+
+
+
 
 }

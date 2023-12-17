@@ -22,7 +22,7 @@ public class Phonebook {
                 x = 1;
             }
 
-        if(!contact.getName().equals("") && x==0)
+        if(!contact.getName().trim().equals("") && x==0)
         {
             contacts.add(contact);
         }
