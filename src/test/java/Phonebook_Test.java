@@ -50,6 +50,29 @@ public class Phonebook_Test {
         Phonebook phonebook=new Phonebook();
         phonebook.addContact(person1);
         String name1="Maryam";
+        assertTrue(Objects.equals(phonebook.getPhoneNumber(name1), "09113569254"));
+    }
+
+    @Test
+    public void testgetContact()
+    {
+        Person person1= new Person("Maryam","09113569254");
+        Phonebook phonebook=new Phonebook();
+        phonebook.addContact(person1);
+
+        Person person2= new Person("Arash","09912650261");
+        phonebook.addContact(person2);
+
+        Person person3 = new Person("Nima","09907556876");
+        phonebook.addContact(person3);
+
+        String name1 ="Nima";
+
+        assertEquals(phonebook.getContact(name1),1);
+
+        String name2 ="Asal";
+
+        assertEquals(phonebook.getContact(name2),0);
 
     }
 
