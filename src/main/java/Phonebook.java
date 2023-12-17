@@ -2,18 +2,31 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Phonebook {
-    private final ArrayList<Person> contacts;
+    private static ArrayList<Person> contacts;
 
     public Phonebook() {
         this.contacts = new ArrayList<>();
     }
 
+
     /**
      * A Simple function to add a new contact
      * @param contact is the Person that we created and just adding it
      */
-    public void addContact(Person contact){
-        contacts.add(contact);
+    public static void addContact(Person contact){
+
+        int x=0;
+
+        for (Person con: contacts)
+            if (contact.getPhone().equals(con.getPhone())) {
+                x = 1;
+            }
+
+        if(!contact.getName().equals("") && x==0)
+        {
+            contacts.add(contact);
+        }
+
     }
 
     /**
@@ -36,7 +49,7 @@ public class Phonebook {
      * if we found the contact who we were looking for, we show the information
      * @return 1 if we found contact and 0 if we couldn't find it
     */
-    public int getContact(String name){
+    public static int getContact(String name){
         for (Person contact : contacts) {
             if (contact == null)
                 return 0;
@@ -104,7 +117,7 @@ public class Phonebook {
      * A method to get all of our contacts in once
      * @return our List of contacts
      */
-    public ArrayList<Person> getAllContacts(){
+    public static ArrayList<Person> getAllContacts(){
         return contacts;
     }
 
