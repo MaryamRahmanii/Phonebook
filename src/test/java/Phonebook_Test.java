@@ -76,6 +76,34 @@ public class Phonebook_Test {
 
     }
 
+    @Test
+    public void testupdateContactName()
+    {
+        Person person1= new Person("Maryam","09113569254");
+        Phonebook phonebook=new Phonebook();
+        phonebook.addContact(person1);
+
+        Person person2= new Person("Arash","09912650261");
+        phonebook.addContact(person2);
+
+        String name1="Maryam";
+        String newname1="MarMar";
+
+        assertEquals(phonebook.updateContactName(name1,newname1),1);
+
+        String name2="Arash";
+        String newname2="   ";
+
+        assertEquals(phonebook.updateContactName(name2,newname2),0);
+
+        String name3 ="Maman";
+        String newname3 ="Nima";
+
+        assertEquals(phonebook.updateContactName(name3, newname3),0);
+
+
+    }
+
 
 
 

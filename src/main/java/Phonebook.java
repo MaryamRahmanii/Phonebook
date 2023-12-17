@@ -71,7 +71,7 @@ public class Phonebook {
         for (Person contact : contacts) {
             if (contact == null)
                 return 0;
-            else if (Objects.equals(contact.getName(), name)) {
+            else if (Objects.equals(contact.getName(), name) && !newName.trim().equals("")) {
                 contact.setName(newName);
                 return 1;
             }
