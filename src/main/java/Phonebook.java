@@ -117,18 +117,20 @@ public class Phonebook {
     /**
      * A function to delete a specific contact from phonebook
      * @param name is the name of that contact
-     * @return 1 if deleting was successful and 0 if it wasn't
      */
-    public int deleteContact(String name){
+    public void deleteContact(String name){
         for (Person contact : contacts) {
-            if (contact == null)
-                return 0;
-            if(Objects.equals(contact.getName(), name)){
+            if(Objects.equals(contact.getName(), name))
+            {
                 contacts.remove(contact);
-                return 1;
             }
+            else {
+                System.out.println("this contact doesn't exist");
+            }
+
         }
-        return 0;
+
+
     }
 
     /**

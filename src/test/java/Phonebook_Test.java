@@ -133,6 +133,27 @@ public class Phonebook_Test {
         assertEquals(phonebook.updateContactPhoneNumber(name3,"09907556876"),0);  //shomareye tekrari ke baraye kas dige save shode nemishe gozasht
     }
 
+    @Test
+    public void testdeleteContact()
+    {
+        Person person1= new Person("Maryam","09113569254");
+        Phonebook phonebook=new Phonebook();
+        phonebook.addContact(person1);
+
+        Person person2= new Person("Arash","09912650261");
+        phonebook.addContact(person2);
+
+        String name1 ="Maryam";
+
+        phonebook.deleteContact(name1);
+
+        assertFalse(phonebook.getAllContacts().contains(person1));
+
+        String name2 ="Avin";
+
+        phonebook.deleteContact(name2);
+
+    }
 
 
 
