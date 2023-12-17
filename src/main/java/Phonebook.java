@@ -85,12 +85,30 @@ public class Phonebook {
      * @return 1 if changing was successful and 0 if it missed
      */
     public int updateContactPhoneNumber(String name, String newPhone){
+
+        int x=0;
+
+        for (Person con: contacts)
+            if (newPhone.equals(con.getPhone())) {
+                x = 1;
+            }
+
+
         for (Person contact : contacts) {
             if (contact == null)
                 return 0;
             else if (Objects.equals(contact.getName(), name)) {
                 contact.setPhone(newPhone);
-                return 1;
+                if(contact.getPhone().equals(newPhone) && x==0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+
             }
         }
         return 0;

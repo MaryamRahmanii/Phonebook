@@ -101,7 +101,36 @@ public class Phonebook_Test {
 
         assertEquals(phonebook.updateContactName(name3, newname3),0);
 
+    }
 
+    @Test
+    public void updateContactPhone()
+    {
+        Person person1= new Person("Maryam","09113569254");
+        Phonebook phonebook=new Phonebook();
+        phonebook.addContact(person1);
+
+        Person person2= new Person("Arash","09912650261");
+        phonebook.addContact(person2);
+
+        Person person3 = new Person("Nima","09907556876");
+        phonebook.addContact(person3);
+
+        String name1 ="Maryam";
+
+        assertEquals(phonebook.updateContactPhoneNumber(name1,"09113578291"),1);
+
+        String name2 ="Asal";
+
+        assertEquals(phonebook.updateContactPhoneNumber(name2,"09113578291"),0);
+
+        String name3 ="Arash";
+
+        assertEquals(phonebook.updateContactPhoneNumber(name3,"0911357"),0);
+
+        assertEquals(phonebook.updateContactPhoneNumber(name3,"091135745687925"),0);
+
+        assertEquals(phonebook.updateContactPhoneNumber(name3,"09907556876"),0);  //shomareye tekrari ke baraye kas dige save shode nemishe gozasht
     }
 
 
